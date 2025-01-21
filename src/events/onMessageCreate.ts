@@ -98,7 +98,7 @@ function getInsult(content: string): string | undefined {
     }
 
     // For each word in the message, check if there is a reply to be returned
-    content.split(/[\n ]+/).some(word => {
+    for(const word of content.split(/[\n ]+/)) {
         switch (word) {
             case "grazie": return "grazie al cazzo";
             case "coglione": return "Ma coglione a chi, figlio di puttana?";
@@ -111,7 +111,7 @@ function getInsult(content: string): string | undefined {
             case "stai zitto":
             case "muto": case "mutati": return "audio";
         }
-    });
+    }
 
     // No reply found - return nothing
 }

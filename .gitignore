@@ -2,6 +2,7 @@
 node_modules
 dist
 volumes
+package-lock.json
 
 # Sensitive data and pipeline
 .env*

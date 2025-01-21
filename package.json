@@ -1,6 +1,6 @@
 {
   "name": "ts-haram-leotta-v5",
-  "version": "5.2.0",
+  "version": "5.2.1",
   "main": "src/index.ts",
   "scripts": {
     "dev": "ts-node-dev --respawn --clear --transpile-only --poll ./src/index.ts",
@@ -8,7 +8,13 @@
     "build": "tsc",
     "start": "node ./dist"
   },
-  "keywords": [ "NodeJS", "TypeScript", "Discord", "Music", "Chat" ],
+  "keywords": [
+    "NodeJS",
+    "TypeScript",
+    "Discord",
+    "Music",
+    "Chat"
+  ],
   "author": "Cotezzo",
   "license": "ISC",
   "description": "Multi-Purpose Discord Bot for personal use",
@@ -21,7 +27,7 @@
   "dependencies": {
     "@discordjs/opus": "^0.9.0",
     "@discordjs/voice": "^0.17.0",
-    "@distube/ytdl-core": "^4.14.0",
+    "@distube/ytdl-core": "^4.15.5",
     "axios": "^1.6.8",
     "discord.js": "^14.15.1",
     "ffmpeg": "^0.0.4",
