@@ -27,18 +27,18 @@
   "dependencies": {
     "@discordjs/opus": "^0.10.0",
     "@discordjs/voice": "^0.18.0",
-    "@distube/ytdl-core": "^4.15.9",
-    "axios": "^1.6.8",
-    "discord.js": "^14.17.3",
+    "@distube/ytdl-core": "^4.16.5",
+    "axios": "^1.8.4",
+    "discord.js": "^14.18.0",
     "ffmpeg": "^0.0.4",
     "ffmpeg-static": "^5.2.0",
     "he": "^1.2.0",
     "jimp": "^0.22.12",
-    "libsodium-wrappers": "^0.7.13",
+    "libsodium-wrappers": "^0.7.15",
     "mongoose": "^8.3.5",
-    "opusscript": "^0.0.8",
+    "opusscript": "^0.1.1",
     "uuid": "^9.0.1",
     "youtube-search-api": "^1.2.2",
-    "ytdl-core": "^4.11.5"
+    "ytdlp-nodejs": "^2.0.4"
   }
 }

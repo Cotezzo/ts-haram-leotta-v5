@@ -1,11 +1,15 @@
 import ytdl from "@distube/ytdl-core";
-//import ytdl from "ytdl-core";
+import { YtDlp } from "ytdlp-nodejs";
 import { secondsToString, stringToSeconds } from "../../../../utils/length";
 import ASong from "../ASong";
-import { Readable } from 'stream';
-import Logger from "../../../logging/Logger";
+import { Readable, PassThrough } from 'stream';
 import YoutubePlaylistSong from "./YoutubePlaylistSong";
+import Logger from "../../../logging/Logger";
 const YouTubeSearchApi = require("youtube-search-api");
+
+const binaryPath = process.env.YTDLP_PATH;
+Logger.info("Configured YtDlp binary: " + binaryPath);
+const ytdlp = new YtDlp({ binaryPath });
 
 export default class YoutubeSong extends ASong {
 
@@ -19,11 +23,28 @@ export default class YoutubeSong extends ASong {
 
     /* ==== METHODS ========================================================= */
     getStream(): Readable {
+        // Retrieve Youtube audio stream
+        const pipeResponse = ytdlp.stream(
+            this.uri!,
+            {
+                format: { filter: "audioonly", quality: "highest" },
+                //onProgress: p => Logger.info(JSON.stringify(p))
+            }
+        );
+
+        // Pipe the response into new readable and writable stream and return it
+        const passThroughStream = new PassThrough();
+        pipeResponse.pipe(passThroughStream);
+        return passThroughStream;
+
+        /* Old method with "@distube/ytdl-core"
         return ytdl(this.uri!, {
             begin: 0, agent: ytdl.createAgent(),
             filter: "audioonly", quality: "highestaudio", highWaterMark: 1048576 * 32
         });
+        */
     }
+
     
     /* ==== STATIC METHODS ================================================== */
     /** Regex that matches video ids in a Youtube video URIs - here's some insights
@@ -43,13 +64,13 @@ export default class YoutubeSong extends ASong {
     //public static regex: RegExp = /(?:youtu\.be\/|youtube\.com(?:\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=|shorts\/)|youtu\.be\/|embed\/|v\/|m\/|watch\?(?:[^=]+=[^&]+&)*?v=))([^"&?\/\s]{11})/gm;
 
     /** Validates a Youtube URI, returning the video id if the URI is valid. */
-    public static getVideoId = function(url: string): undefined | string {
+    public static getVideoId = function (url: string): undefined | string {
         const result = YoutubeSong.regex.exec(url);
-        if(result && result.length > 1) return result[1];
+        if (result && result.length > 1) return result[1];
     }
 
     /** Retrieves metadata from a valid Youtube video url. */
-    public static getVideoInfo = async function(id: string): Promise<YoutubeSong> {
+    public static getVideoInfo = async function (id: string): Promise<YoutubeSong> {
         const info = await ytdl.getBasicInfo(`https://www.youtube.com/watch?v=${id}`);
         const { title, lengthSeconds: seconds, thumbnails } = info.videoDetails;
         const lengthSeconds = +seconds;
@@ -64,7 +85,7 @@ export default class YoutubeSong extends ASong {
      *  metadata retrieved from the APIs for the given id. */
     public static async fromUri(uri: string): Promise<YoutubeSong[] | undefined> {
         const id: string | undefined = YoutubeSong.getVideoId(uri);
-        if(!id) return undefined;
+        if (!id) return undefined;
 
         return [await YoutubeSong.getVideoInfo(id)];
     }
@@ -77,20 +98,20 @@ export default class YoutubeSong extends ASong {
         query = `${query} -channel`;
         // If the token (nextPage token) is provided, use it to go to the next page
         let items, nextPage;
-        if(token)   ({ items, nextPage } = await YouTubeSearchApi.NextPage(token, true, limit));
-        else        ({ items, nextPage } = await YouTubeSearchApi.GetListByKeyword(query, true, limit/*, [{type:"video"}]*/));// "video/channel/playlist/movie"
+        if (token) ({ items, nextPage } = await YouTubeSearchApi.NextPage(token, true, limit));
+        else ({ items, nextPage } = await YouTubeSearchApi.GetListByKeyword(query, true, limit/*, [{type:"video"}]*/));// "video/channel/playlist/movie"
 
         const results: ASong[] = [];
         // Filter youtube items with useful data
         items.forEach(({ id, title, length, thumbnail, isLive, type }: any) => {
             // Ignore channels
-            if(type === 0) return;
+            if (type === 0) return;
 
             // Retrieve thumbnail
             const thumb: string | undefined = thumbnail?.thumbnails?.pop()?.url;
 
             // If item is a youtube playlist, create different instance
-            if(type === "playlist") {
+            if (type === "playlist") {
                 results.push(new YoutubePlaylistSong(title, id, parseInt(length)));
                 return;
             }

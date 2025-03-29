@@ -67,6 +67,7 @@ services:
       EMBED_COLOR: 0xad1457
       MUSIC_MAX_HISTORY: 5
       REDDIT_MAX_SUBS: 5
+      YTDLP_PATH: /usr/local/bin/yt-dlp
 
     # Build image from Dockerfile in the current directory and override its CMD.
     build: .

@@ -10,7 +10,7 @@ export default class Reddit {
     /** Maximum number of reddit subreddits that can be saved in cache.
      *  This number affect the number of subreddits that can be navigated
      *  at the same time, without losing track of seen post and current page. */
-    static readonly maxSubs: number = parseInt(process.env.REDDIT_MAX_SUBS ?? "10");
+    static readonly maxSubs: number = parseInt(process.env.REDDIT_MAX_SUBS || "10");
 
     /** Map used to memorize subreddits information relatively to server channels */
     static readonly cache: Map<string, Map<string, Subreddit>> = new Map();
