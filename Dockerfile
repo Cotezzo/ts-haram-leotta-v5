@@ -6,8 +6,8 @@ FROM node:20.18.1
 
 # Install yt-dlp binary (needed for ytdlp-nodejs library)
 #RUN curl -L https://github.com/yt-dlp/yt-dlp/releases/download/2025.03.27/yt-dlp_linux -o /usr/local/bin/yt-dlp && \
-RUN curl -L https://github.com/yt-dlp/yt-dlp/releases/download/2025.03.27/yt-dlp_linux_aarch64 -o /usr/local/bin/yt-dlp && \
-    chmod +x /usr/local/bin/yt-dlp
+#RUN curl -L https://github.com/yt-dlp/yt-dlp/releases/download/2025.03.27/yt-dlp_linux_aarch64 -o /usr/local/bin/yt-dlp && \
+#    chmod +x /usr/local/bin/yt-dlp
 
 #COPY --from=mwader/static-ffmpeg:7.1.1 /ffmpeg /usr/local/bin/
 

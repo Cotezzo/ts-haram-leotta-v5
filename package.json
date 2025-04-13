@@ -27,7 +27,7 @@
   "dependencies": {
     "@discordjs/opus": "^0.10.0",
     "@discordjs/voice": "^0.18.0",
-    "@distube/ytdl-core": "^4.16.5",
+    "@distube/ytdl-core": "^4.16.8",
     "axios": "^1.8.4",
     "discord.js": "^14.18.0",
     "ffmpeg": "^0.0.4",
@@ -39,6 +39,6 @@
     "opusscript": "^0.1.1",
     "uuid": "^9.0.1",
     "youtube-search-api": "^1.2.2",
-    "ytdlp-nodejs": "^2.0.4"
+    "yt-dlp-wrap": "^2.3.12"
   }
 }

@@ -1,5 +1,6 @@
 import ytdl from "@distube/ytdl-core";
-import { YtDlp } from "ytdlp-nodejs";
+//import { YtDlp } from "ytdlp-nodejs";
+//import YTDlpWrap  from "yt-dlp-wrap";
 import { secondsToString, stringToSeconds } from "../../../../utils/length";
 import ASong from "../ASong";
 import { Readable, PassThrough } from 'stream';
@@ -7,9 +8,12 @@ import YoutubePlaylistSong from "./YoutubePlaylistSong";
 import Logger from "../../../logging/Logger";
 const YouTubeSearchApi = require("youtube-search-api");
 
+/*
 const binaryPath = process.env.YTDLP_PATH;
 Logger.info("Configured YtDlp binary: " + binaryPath);
-const ytdlp = new YtDlp({ binaryPath });
+const ytDlpWrap = new YTDlpWrap(binaryPath);
+*/
+//const ytdlp = new YtDlp({ binaryPath });
 
 export default class YoutubeSong extends ASong {
 
@@ -23,6 +27,24 @@ export default class YoutubeSong extends ASong {
 
     /* ==== METHODS ========================================================= */
     getStream(): Readable {
+        /*
+        const stream = ytDlpWrap.execStream([
+            this.uri!,
+            '-f',                           // Format flag
+            'bestaudio[ext=m4a]',           // Best audio, prefer m4a format (or change to mp3/webm)
+            '--extract-audio',              // Extract audio only (ignore video)
+            '--audio-quality', '0',         // Set audio quality to best (0)
+            '--audio-format', 'm4a',        // You can set this to 'mp3', 'm4a', or 'webm'
+            '--postprocessor-args', '-vn',  // Post-process settings, disables video (-vn) if audio only
+        ]);
+        // Create intermediate stream with a large buffer
+        const passThroughStream = new PassThrough({ highWaterMark: 1048576 * 32 });
+        stream.pipe(passThroughStream);
+        return passThroughStream;
+        */
+
+        
+        /* Old method, it works but library installation fails on aarch64
         // Retrieve Youtube audio stream
         const pipeResponse = ytdlp.stream(
             this.uri!,
@@ -36,13 +58,14 @@ export default class YoutubeSong extends ASong {
         const passThroughStream = new PassThrough();
         pipeResponse.pipe(passThroughStream);
         return passThroughStream;
+        */
 
-        /* Old method with "@distube/ytdl-core"
+
+        /* Old method with "@distube/ytdl-core" */
         return ytdl(this.uri!, {
             begin: 0, agent: ytdl.createAgent(),
             filter: "audioonly", quality: "highestaudio", highWaterMark: 1048576 * 32
         });
-        */
     }
 
     
