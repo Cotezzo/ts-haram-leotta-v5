@@ -1,5 +1,6 @@
 # Bloat
 node_modules
+package-lock.json
 dist
 volumes
 README.md

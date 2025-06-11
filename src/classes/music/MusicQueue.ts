@@ -169,6 +169,6 @@ export default abstract class MusicQueue {
 
     /** Retrieves the currently playing song. */
     public getCurrent(): ASong | undefined {
-        return this.queue.at(0);
+        return this.queue[0];
     }
 }
