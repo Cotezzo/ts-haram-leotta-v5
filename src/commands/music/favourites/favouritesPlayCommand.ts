@@ -13,7 +13,7 @@ const favouritesPlayCommandMetadata: CommandMetadata<{ i: Message | Interaction,
     `ham fp 3` // Adds the selected song to the queue",
 
     command: async ({ i, userId, index }) => {
-        if(index) {
+        if(index !== undefined) {
             let song: ASong | undefined;
 
             // If there is a FavouritesMessage instance, retrieve the fav from there
