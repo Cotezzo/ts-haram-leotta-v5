@@ -50,7 +50,7 @@ abstract class ASong {
 module ASong {
     /** Each song must identify its type so that, when saving and retrieving from
      *  MongoDB, the inner data can be interpreted correctly. */
-    export enum SongType { YOUTUBE, YOUTUBE_PLAYLIST, YOUTUBE_MIX, SPOTIFY }
+    export enum SongType { YOUTUBE, YOUTUBE_PLAYLIST, YOUTUBE_MIX, SPOTIFY, RAW_URI }
 }
 
 export default ASong;

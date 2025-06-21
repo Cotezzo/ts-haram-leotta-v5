@@ -10,6 +10,7 @@ import NowPlayingMessage from "./message/nowPlayingMessage";
 import QueueMessage from "./message/queueMessage";
 import YoutubePlaylistSong from "./song/youtube/YoutubePlaylistSong";
 import ASong from "./song/ASong";
+import RawUriSong from "./song/RawUriSong";
 
 class MusicPlayer extends MusicQueue {
 
@@ -169,6 +170,8 @@ class MusicPlayer extends MusicQueue {
         // TODO: SoundCloud
         // TODO: YewTube (Youtube mature content that needs authentication)
 
+        return [new RawUriSong(uri)];
+
         // Uri is not supported, throw
         throw new Error("Invalid or unhandled uri");
     }
@@ -310,7 +313,14 @@ class MusicPlayer extends MusicQueue {
         const song: ASong | undefined = super.getCurrent();
         if (!song) return false;
         
-        const stream: Readable = await song.getStream();
+        let stream: Readable;
+        try {
+            stream = await song.getStream();
+        } catch(e: any) {
+            Logger.error("Error retrieving stream\n", e);
+            await this.skip();
+            return false;
+        }
 
         // Create audio resource with retrieved stream
         this.resource = createAudioResource(stream, {

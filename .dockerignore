@@ -12,6 +12,6 @@ LICENSE
 .env
 Makefile
 Dockerfile
-docker-compose.*
+docker-compose.dev.yml
 .dockerignore
 mongo-init.js

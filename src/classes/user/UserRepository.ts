@@ -5,6 +5,7 @@ import { Message, User } from "discord.js";
 import ASong from "../music/song/ASong";
 import YoutubeSong from "../music/song/youtube/YoutubeSong";
 import SpotifySong from "../music/song/spotify/SpotifySong";
+import RawUriSong from "../music/song/RawUriSong";
 
 export default class UserRepository {
 
@@ -63,6 +64,10 @@ export default class UserRepository {
 
                 if(f.type === ASong.SongType.SPOTIFY)
                     return new SpotifySong(f.id, f.title, f.lengthSeconds!, f.thumbnail);
+
+
+                if(f.type === ASong.SongType.RAW_URI)
+                    return new RawUriSong(f.id);
             }).filter(i => i !== undefined);
             
         } catch (e) {
@@ -77,9 +82,10 @@ export default class UserRepository {
         return favourites[index];
     }
 
-    public static async addUserFavourite(userId: string, song: YoutubeSong | SpotifySong): Promise<void> {
+    public static async addUserFavourite(userId: string, song: YoutubeSong | SpotifySong | RawUriSong): Promise<void> {
         // Deconstruct and only retrieve useful data
         const { id, title, lengthString, lengthSeconds, thumbnail, type } = song;
+        Logger.info(`Adding song to facourites: ${JSON.stringify({ id, title, lengthString, lengthSeconds, thumbnail, type })}`)
 
         try {
             // Retrieve user from database - if it doesn't exist, create it
@@ -88,6 +94,7 @@ export default class UserRepository {
             if(!user.favourites) user.favourites = [];
             // Push song essential data to favourites array
             user.favourites.push({ id, title, lengthString, lengthSeconds, thumbnail, type } as ASong);
+            Logger.info(`Updated favourites: ${JSON.stringify(user.favourites)}`)
             // Save updated data to Mongo
             await user.save();
             Logger.info("Favourites updated");
