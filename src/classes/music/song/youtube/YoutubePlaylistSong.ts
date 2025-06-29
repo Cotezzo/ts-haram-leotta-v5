@@ -1,6 +1,7 @@
 import axios from "axios";
 import ASong from "../ASong";
 import YoutubeSong from "./YoutubeSong";
+import Logger from "../../../logging/Logger";
 
 export default class YoutubePlaylistSong extends ASong {
 
@@ -21,6 +22,7 @@ export default class YoutubePlaylistSong extends ASong {
         const id: string | undefined = YoutubePlaylistSong.getPlaylistId(uri);
         if(!id) return undefined;
 
+        Logger.info(`Provided URI is a Youtube Playlist with id "${id}"`);
         return await YoutubePlaylistSong.getSongs(id);
     };
     
@@ -28,7 +30,7 @@ export default class YoutubePlaylistSong extends ASong {
      *  from the input playlist id. */
     public static async getSongs(id: string): Promise<YoutubeSong[]> {
         const { initData, apiToken, context } = await YoutubePlaylistSong.getPlaylistInitData(id);
-    
+
         const items: YoutubeSong[] = [];
         let continuation: any | undefined = undefined;
 
@@ -62,7 +64,18 @@ export default class YoutubePlaylistSong extends ASong {
     
             // Last item should contain continuation token (100+ elements playlists)
             // If token is present, keep looping
-            continuation = lastItem?.continuationItemRenderer?.continuationEndpoint?.continuationCommand?.token;
+
+            // The first time the playlist is retrieved, the continuation token
+            // is in the "commands" object array, inside the lastItem.
+            // For 100+ elements playlists, further continuation tokens can be
+            // found inside the continuationCommand (see code below).
+            const continuationEndpoint = lastItem?.continuationItemRenderer?.continuationEndpoint
+            continuation = continuationEndpoint?.commandExecutorCommand?.commands?.pop()?.continuationCommand?.token;
+            if(!continuation)
+                continuation = continuationEndpoint?.continuationCommand.token
+
+            if(!continuation) Logger.debug(`lastItem: ${JSON.stringify(lastItem)}`);
+            Logger.debug(`Playlist continuation token: ${continuation}`);
         } while(continuation);
     
         return items;
@@ -70,7 +83,7 @@ export default class YoutubePlaylistSong extends ASong {
 
     /* ==== PRIVATE STATIC METHODS ========================================== */
     /** Regex that matches a valid Youtube playlist uri and extract its id. */
-    private static regex: RegExp = /youtu(?:\.be|be(?:-nocookie)?\.com)\/playlist\?list=([0-9a-zA-Z_-]{18,41})$/;
+    private static regex: RegExp = /youtu(?:\.be|be(?:-nocookie)?\.com)\/playlist\?list=([0-9a-zA-Z_-]{18,41})(&si=[0-9a-zA-Z_-]*)?$/;
 
     /** Validates a Youtube URI, returning the playlist id if the URI is valid. */
     private static getPlaylistId = function(url: string): undefined | string {

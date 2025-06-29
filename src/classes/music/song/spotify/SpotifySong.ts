@@ -48,6 +48,7 @@ export default class SpotifySong extends ASong {
         const id: string | undefined = SpotifySong.getSongId(uri);
         if(!id) return undefined;
 
+        Logger.info("Provided URI is a Spotify Song");
         Logger.debug(`Retrieving Spotify song metadata for id: '${id}'`);
 
         // Retrieve song JSON metadata
@@ -78,6 +79,7 @@ export default class SpotifySong extends ASong {
         const id: string | undefined = SpotifySong.getAlbumId(uri);
         if(!id) return undefined;
 
+        Logger.info("Provided URI is a Spotify Album");
         Logger.debug(`Retrieving Spotify album metadata for id: '${id}'`);
 
         let offset = 0, limit = 500;
@@ -128,6 +130,7 @@ export default class SpotifySong extends ASong {
         const id: string | undefined = SpotifySong.getPlaylistId(uri);
         if(!id) return undefined;
 
+        Logger.info("Provided URI is a Spotify Playlist");
         Logger.info(`Retrieving Spotify playlist metadata for id: '${id}'`);
 
         let offset = 0, limit = 500;

@@ -170,6 +170,8 @@ class MusicPlayer extends MusicQueue {
         // TODO: SoundCloud
         // TODO: YewTube (Youtube mature content that needs authentication)
 
+
+        Logger.info("Provided URI is not recognised, playing it as raw file");
         return [new RawUriSong(uri)];
 
         // Uri is not supported, throw

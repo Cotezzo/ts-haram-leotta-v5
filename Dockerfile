@@ -29,7 +29,8 @@ RUN npm install &&\
     rm -rf tsconfig.json &&\
     npm prune --production
 
-COPY package_overrides/@distube-youtube-index.js node_modules/@distube/youtube/dist/index.js
-COPY package_overrides/@distube-ytdl-core-sig.js node_modules/@distube/ytdl-core/lib/sig.js
+#COPY package_overrides/@distube-youtube-index.js node_modules/@distube/youtube/dist/index.js
+#COPY package_overrides/@distube-ytdl-core-sig.js node_modules/@distube/ytdl-core/lib/sig.js
+COPY package_overrides/youtube-search-api-dist-index.js node_modules/youtube-search-api/dist/index.js
 
 CMD ["npm", "run", "start"]

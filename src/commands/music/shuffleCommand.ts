@@ -10,7 +10,7 @@ const shuffleCommandMetadata: CommandMetadata<{ i: Message | Interaction }, void
     
     command: async ({ i }) => {
         await MusicPlayer.get(i, async (musicPlayer: MusicPlayer) => {
-            musicPlayer.shuffle();
+            await musicPlayer.shuffle();
         });
     },
 

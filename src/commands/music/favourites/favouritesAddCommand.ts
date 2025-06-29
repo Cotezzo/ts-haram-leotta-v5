@@ -13,8 +13,8 @@ import { ephemeralReplyErrorHandler, noReplyResponseTransformer } from "../../..
 const favouritesAddCommandMetadata: CommandMetadata<{ i: Message | Interaction, userId: string }, void> = {
     category: "Music", description: "Adds current song to favourites. \
 Playlists/Mixes can't be added: current song will be added instead.",
-    aliases: ["favouritesadd", "fa"],
-    usage: "`ham favouritesadd`\n`ham fa`",
+    aliases: ["favouritesadd", "favadd", "fa"],
+    usage: "`ham favouritesadd`\n`ham favadd`\n`ham fa`",
 
     command: async ({ i, userId }) => {
         let song: SpotifySong | YoutubeSong | YoutubeMixSong | YoutubePlaylistSong | undefined;

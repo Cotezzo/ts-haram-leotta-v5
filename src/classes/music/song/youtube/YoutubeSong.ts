@@ -3,7 +3,7 @@ import ytdl from "@distube/ytdl-core";
 //import YTDlpWrap  from "yt-dlp-wrap";
 import { secondsToString, stringToSeconds } from "../../../../utils/length";
 import ASong from "../ASong";
-import { Readable, PassThrough } from 'stream';
+import { Readable } from 'stream';
 import YoutubePlaylistSong from "./YoutubePlaylistSong";
 import Logger from "../../../logging/Logger";
 const YouTubeSearchApi = require("youtube-search-api");
@@ -110,13 +110,14 @@ export default class YoutubeSong extends ASong {
         const id: string | undefined = YoutubeSong.getVideoId(uri);
         if (!id) return undefined;
 
+        Logger.info(`Provided URI is a Youtube Video with id "${id}"`);
         return [await YoutubeSong.getVideoInfo(id)];
     }
 
     /** Uses Youtube search APIs in order to retrieve videos from the query.
      *  There is a maximum number of results that can be retrieved, but the
      *  nextPage token can be used to retrieve the next results. */
-    public static async search(query: string, limit: number, token?: object): Promise<{ items: ASong[], nextPage?: object }> {
+    public static async search(query: string, limit: number, token?: any): Promise<{ items: ASong[], nextPage?: any }> {
         // Try to filter out channels from the results
         query = `${query} -channel`;
         // If the token (nextPage token) is provided, use it to go to the next page

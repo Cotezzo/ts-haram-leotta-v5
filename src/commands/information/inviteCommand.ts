@@ -7,7 +7,7 @@ const inviteCommandMetadata: CommandMetadata<null, { content: string }> = {
     aliases: ["invite", "inv"], usage: "`ham invite`",
 
     command: () => {
-        return { content: "Inviation link: https://discord.com/api/oauth2/authorize?client_id=803895490483322941&permissions=140227505729&scope=applications.commands%20bot" };
+        return { content: "Invitation link: https://discord.com/api/oauth2/authorize?client_id=803895490483322941&permissions=140227505729&scope=applications.commands%20bot" };
     },
 
     onMessage: {

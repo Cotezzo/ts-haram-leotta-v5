@@ -160,11 +160,12 @@ export default abstract class MusicQueue {
 
     /** Randomly changes the position of all the songs in the queue, except
      *  for the currently playing one. */
-    public shuffle() {
+    public async shuffle() {
         for (let i = 1; i < this.queue.length; i++) {
             const j = Math.floor(Math.random() * (this.queue.length - 1)) + 1;
             [this.queue[i], this.queue[j]] = [this.queue[j], this.queue[i]];
         }
+        await this.updateDynamicMessages();
     }
 
     /** Retrieves the currently playing song. */
