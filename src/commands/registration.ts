@@ -1,7 +1,8 @@
-import { CommandMetadata } from "./types";
-import Logger from "../classes/logging/Logger";
-import { readdir } from 'fs/promises';
-import * as path from 'path';
+import { CommandMetadata } from "./types.js";
+import Logger from "../classes/logging/Logger.js";
+import { readdir } from "fs/promises";
+import * as path from "path";
+import { getDirname } from "../utils/dirname.js";
 
 /** Define command-name / metadata map.
  *  The map is used when events such as message creation, slash or interactions
@@ -12,7 +13,8 @@ export const commandMetadatas: CommandMetadata<any, any>[] = [];
 
 /** Initialize the commandMetadatas map with all the available commands. */
 export async function registerCommands() {
-    const directoryPath = __dirname;  // path.resolve(__dirname, '../commands');
+    const directoryPath = getDirname(import.meta);
+    Logger.debug(`Registering commands from directory: ${directoryPath}`);
     const defaultExportsArray: CommandMetadata<any, any>[] = await loadDefaultExports(directoryPath);
   
     for(const commandMetadata of defaultExportsArray) {

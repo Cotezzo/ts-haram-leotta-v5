@@ -1,5 +1,5 @@
 import mongoose, { ConnectOptions } from "mongoose";    // MongoDB Database connector
-import Logger from "../classes/logging/Logger";
+import Logger from "../classes/logging/Logger.js";
 
 export default class MongooseConfig {
     /** Mongoose connection uri - from env */

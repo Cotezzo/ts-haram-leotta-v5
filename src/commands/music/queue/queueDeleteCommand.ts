@@ -1,7 +1,7 @@
-import { CommandMetadata } from "../../types";
+import { CommandMetadata } from "../../types.js";
 import { Interaction, Message } from "discord.js";
-import MusicPlayer from "../../../classes/music/MusicPlayer";
-import { deferUpdateErrorHandler, deferUpdateResponseTransformer } from "../../../events/onInteractionCreate";
+import MusicPlayer from "../../../classes/music/MusicPlayer.js";
+import { deferUpdateErrorHandler, deferUpdateResponseTransformer } from "../../../events/onInteractionCreate.js";
 
 const queueDeleteCommandMetadata: CommandMetadata<{ i: Message | Interaction }, void> = {
     category: "Music", description: "Deletes the displayed queue message",

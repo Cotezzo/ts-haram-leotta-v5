@@ -1,10 +1,10 @@
-import { msgReactErrorHandler, msgReplyResponseTransformer } from "../../events/onMessageCreate";
-import { CommandMetadata } from "../types";
-import GoogleTranslate from "../../classes/translate/GoogleTranslate";
-import { emptyErrorHandler } from "../../events/onMessageReactionAdd";
-import Logger from "../../classes/logging/Logger";
+import { msgReactErrorHandler, msgReplyResponseTransformer } from "../../events/onMessageCreate.js";
+import { CommandMetadata } from "../types.js";
+import GoogleTranslate from "../../classes/translate/GoogleTranslate.js";
+import { emptyErrorHandler } from "../../events/onMessageReactionAdd.js";
+import Logger from "../../classes/logging/Logger.js";
 import { PartialGroupDMChannel } from "discord.js";
-import { ephemeralReplyErrorHandler, interactionReplyResponseTransformer } from "../../events/onInteractionCreate";
+import { ephemeralReplyErrorHandler, interactionReplyResponseTransformer } from "../../events/onInteractionCreate.js";
 
 const translateCommandMetadata: CommandMetadata<{ query: string, targetLanguage: string, sourceLanguage?: string }, { content: string }> = {
     category: "Internet", description: "Translates some text into another language.",

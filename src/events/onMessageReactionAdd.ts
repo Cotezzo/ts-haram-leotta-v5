@@ -1,8 +1,8 @@
 import { MessageReaction, MessageReactionEventDetails, PartialMessageReaction, PartialUser, User } from "discord.js";
-import Context from "../classes/logging/Context";
-import translateCommandMetadata from "../commands/internet/translateCommand";
-import Logger from "../classes/logging/Logger";
-import { CommandMetadata, onMessageReactionAddData } from "../commands/types";
+import Context from "../classes/logging/Context.js";
+import translateCommandMetadata from "../commands/internet/translateCommand.js";
+import Logger from "../classes/logging/Logger.js";
+import { CommandMetadata, onMessageReactionAddData } from "../commands/types.js";
 
 export default function (reaction: MessageReaction | PartialMessageReaction, user: User | PartialUser, details: MessageReactionEventDetails): void {
     // Before executing any logic, initialize context for verbose logging

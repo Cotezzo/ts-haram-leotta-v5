@@ -1,8 +1,8 @@
-import HaramLeotta from "..";
-import Logger from "../classes/logging/Logger";
-import MongooseConfig from "../data/MongooseConfig";
-import { registerCommands } from "../commands/registration";
-import Wikipedia from "../classes/wikipedia/Wikipedia";
+import HaramLeotta from "../index.js";
+import Logger from "../classes/logging/Logger.js";
+import MongooseConfig from "../data/MongooseConfig.js";
+import { registerCommands } from "../commands/registration.js";
+import Wikipedia from "../classes/wikipedia/Wikipedia.js";
 
 /** Event triggered when the bot has successfully logged in.
  *  Update bot activity and log some guild info. */

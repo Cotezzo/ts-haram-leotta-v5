@@ -1,7 +1,7 @@
-import UserRepository from "../../classes/user/UserRepository";
-import { ephemeralReplyErrorHandler, ephemeralReplyResponseTransformer, interactionReplyResponseTransformer } from "../../events/onInteractionCreate";
-import { msgReactErrorHandler, msgReplyResponseTransformer } from "../../events/onMessageCreate";
-import { CommandMetadata } from "../types";
+import UserRepository from "../../classes/user/UserRepository.js";
+import { ephemeralReplyErrorHandler, ephemeralReplyResponseTransformer } from "../../events/onInteractionCreate.js";
+import { msgReactErrorHandler, msgReplyResponseTransformer } from "../../events/onMessageCreate.js";
+import { CommandMetadata } from "../types.js";
 
 export const VALID_PREFIX_REGEX: RegExp = /^\w{0,30}$/;
 

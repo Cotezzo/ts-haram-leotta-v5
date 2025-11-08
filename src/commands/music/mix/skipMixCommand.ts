@@ -1,8 +1,8 @@
 import { Interaction, Message } from "discord.js";
-import MusicPlayer from "../../../classes/music/MusicPlayer";
-import { CommandMetadata } from "../../types";
-import { msgReactErrorHandler, msgReactResponseTransformer } from "../../../events/onMessageCreate";
-import { ephemeralReplyErrorHandler, noReplyResponseTransformer } from "../../../events/onInteractionCreate";
+import MusicPlayer from "../../../classes/music/MusicPlayer.js";
+import { CommandMetadata } from "../../types.js";
+import { msgReactErrorHandler, msgReactResponseTransformer } from "../../../events/onMessageCreate.js";
+import { ephemeralReplyErrorHandler, noReplyResponseTransformer } from "../../../events/onInteractionCreate.js";
 
 const skipMixCommandMetadata: CommandMetadata<{ i: Message | Interaction }, void> = {
     category: "Music", description: "skips the current song or mix in the queue, \

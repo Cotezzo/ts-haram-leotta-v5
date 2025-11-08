@@ -1,11 +1,11 @@
-import Logger from "../logging/Logger";
-import IUserModel from "../../data/interfaces/IUserModel";
-import UserModel from "../../data/model/UserModel";
+import Logger from "../logging/Logger.js";
+import IUserModel from "../../data/interfaces/IUserModel.js";
+import UserModel from "../../data/model/UserModel.js";
 import { Message, User } from "discord.js";
-import ASong from "../music/song/ASong";
-import YoutubeSong from "../music/song/youtube/YoutubeSong";
-import SpotifySong from "../music/song/spotify/SpotifySong";
-import RawUriSong from "../music/song/RawUriSong";
+import ASong from "../music/song/ASong.js";
+import YoutubeSong from "../music/song/youtube/YoutubeSong.js";
+import SpotifySong from "../music/song/spotify/SpotifySong.js";
+import RawUriSong from "../music/song/RawUriSong.js";
 
 export default class UserRepository {
 

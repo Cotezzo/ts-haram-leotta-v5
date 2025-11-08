@@ -1,9 +1,9 @@
-import { msgReactErrorHandler, msgReactResponseTransformer, msgReplyResponseTransformer } from "../../events/onMessageCreate";
-import { CommandMetadata } from "../types";
+import { msgReactErrorHandler, msgReactResponseTransformer } from "../../events/onMessageCreate.js";
+import { CommandMetadata } from "../types.js";
 import { Interaction, Message } from "discord.js";
-import MusicPlayer from "../../classes/music/MusicPlayer";
-import Logger from "../../classes/logging/Logger";
-import { ephemeralReplyErrorHandler, noReplyResponseTransformer } from "../../events/onInteractionCreate";
+import MusicPlayer from "../../classes/music/MusicPlayer.js";
+import Logger from "../../classes/logging/Logger.js";
+import { ephemeralReplyErrorHandler, noReplyResponseTransformer } from "../../events/onInteractionCreate.js";
 
 const volumeCommandMetadata: CommandMetadata<{ i: Message | Interaction, volume: number }, void> = {
     category: "Music", description: "Changes the volume of the music.",

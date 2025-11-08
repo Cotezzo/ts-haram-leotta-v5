@@ -1,8 +1,8 @@
-import { CommandMetadata } from "../types";
+import { CommandMetadata } from "../types.js";
 import { Interaction, Message } from "discord.js";
-import MusicPlayer from "../../classes/music/MusicPlayer";
-import { msgReactErrorHandler, msgReactResponseTransformer } from "../../events/onMessageCreate";
-import { deferUpdateErrorHandler, deferUpdateResponseTransformer, ephemeralReplyErrorHandler, noReplyResponseTransformer } from "../../events/onInteractionCreate";
+import MusicPlayer from "../../classes/music/MusicPlayer.js";
+import { msgReactErrorHandler, msgReactResponseTransformer } from "../../events/onMessageCreate.js";
+import { deferUpdateErrorHandler, deferUpdateResponseTransformer, ephemeralReplyErrorHandler, noReplyResponseTransformer } from "../../events/onInteractionCreate.js";
 
 const unpauseCommandMetadata: CommandMetadata<{ i: Message | Interaction }, void> = {
     category: "Music", description: "Unpauses the playing song.",

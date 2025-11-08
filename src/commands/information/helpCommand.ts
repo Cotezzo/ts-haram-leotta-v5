@@ -1,9 +1,9 @@
 import { EmbedBuilder } from "discord.js";
-import { CommandMetadata } from "../types";
-import { msgReactErrorHandler, msgReplyResponseTransformer } from "../../events/onMessageCreate";
-import HaramLeotta from "../..";
-import { commandMetadataMap, commandMetadatas } from "../registration";
-import { ephemeralReplyErrorHandler, ephemeralReplyResponseTransformer } from "../../events/onInteractionCreate";
+import { CommandMetadata } from "../types.js";
+import { msgReactErrorHandler, msgReplyResponseTransformer } from "../../events/onMessageCreate.js";
+import HaramLeotta from "../../index.js";
+import { commandMetadataMap, commandMetadatas } from "../registration.js";
+import { ephemeralReplyErrorHandler, ephemeralReplyResponseTransformer } from "../../events/onInteractionCreate.js";
 
 const helpCommandMetadata: CommandMetadata<{ command?: string }, { embeds: EmbedBuilder[] }> = {
     category: "Information", description: "Shows the list of available commands and their usage.",

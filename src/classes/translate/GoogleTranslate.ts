@@ -1,5 +1,5 @@
 import axios from "axios";
-import Logger from "../logging/Logger";
+import Logger from "../logging/Logger.js";
 
 export default class GoogleTranslate {
 

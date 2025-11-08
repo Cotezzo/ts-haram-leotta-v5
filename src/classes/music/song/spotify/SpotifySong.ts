@@ -1,8 +1,8 @@
 import axios from "axios";
-import ASong from "../ASong";
-import YoutubeSong from "../youtube/YoutubeSong";
-import { Readable } from 'stream';
-import Logger from "../../../logging/Logger";
+import ASong from "../ASong.js";
+import YoutubeSong from "../youtube/YoutubeSong.js";
+import { Readable } from "stream";
+import Logger from "../../../logging/Logger.js";
 
 export default class SpotifySong extends ASong {
 

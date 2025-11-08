@@ -1,6 +1,6 @@
-import { ephemeralReplyErrorHandler, interactionReplyResponseTransformer } from "../../events/onInteractionCreate";
-import { msgReactErrorHandler, msgReplyResponseTransformer } from "../../events/onMessageCreate";
-import { CommandMetadata } from "../types";
+import { ephemeralReplyErrorHandler, interactionReplyResponseTransformer } from "../../events/onInteractionCreate.js";
+import { msgReactErrorHandler, msgReplyResponseTransformer } from "../../events/onMessageCreate.js";
+import { CommandMetadata } from "../types.js";
 
 /** String tu be used to join the "clapped" elements. */
 const clap = ' :clap_tone5: ';

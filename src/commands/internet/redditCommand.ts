@@ -1,10 +1,10 @@
 import { EmbedBuilder, TextChannel, PartialGroupDMChannel } from "discord.js";
-import { CommandMetadata } from "../types";
-import HaramLeotta from "../..";
-import { RedditPost, RedditSortBy } from "../../classes/reddit/types";
-import Reddit from "../../classes/reddit/Reddit";
-import { msgReactErrorHandler, msgReplyResponseTransformer } from "../../events/onMessageCreate";
-import { ephemeralReplyErrorHandler, interactionReplyResponseTransformer } from "../../events/onInteractionCreate";
+import { CommandMetadata } from "../types.js";
+import HaramLeotta from "../../index.js";
+import { RedditPost, RedditSortBy } from "../../classes/reddit/types.js";
+import Reddit from "../../classes/reddit/Reddit.js";
+import { msgReactErrorHandler, msgReplyResponseTransformer } from "../../events/onMessageCreate.js";
+import { ephemeralReplyErrorHandler, interactionReplyResponseTransformer } from "../../events/onInteractionCreate.js";
 
 const redditCommandMetadata: CommandMetadata<{ groupId: string, subreddit: string, sortby?: RedditSortBy, nsfw?: boolean }, { content?: string, embeds?: EmbedBuilder[] }[]> = {
     category: "Internet", description: "Retrieves a post from the specified subreddit, if exists.",

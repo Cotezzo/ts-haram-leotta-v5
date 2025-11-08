@@ -1,8 +1,8 @@
-import { msgReactErrorHandler, msgReactResponseTransformer } from "../../events/onMessageCreate";
-import { CommandMetadata } from "../types";
+import { msgReactErrorHandler, msgReactResponseTransformer } from "../../events/onMessageCreate.js";
+import { CommandMetadata } from "../types.js";
 import { Interaction, Message } from "discord.js";
-import MusicPlayer from "../../classes/music/MusicPlayer";
-import { ephemeralReplyErrorHandler, noReplyResponseTransformer } from "../../events/onInteractionCreate";
+import MusicPlayer from "../../classes/music/MusicPlayer.js";
+import { ephemeralReplyErrorHandler, noReplyResponseTransformer } from "../../events/onInteractionCreate.js";
 
 const removeCommandMetadata: CommandMetadata<{ i: Message | Interaction, index: number }, void> = {
     category: "Music", description: "Plays the previous song in the queue.",

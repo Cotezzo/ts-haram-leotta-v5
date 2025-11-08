@@ -1,10 +1,11 @@
-import { GatewayIntentBits, Options, Client, ActivityType, CacheFactory, ColorResolvable } from 'discord.js';
-import Logger from "./classes/logging/Logger";
-import onReady from './events/onReady';
-import onMessageCreate from './events/onMessageCreate';
-import onInteractionCreate from './events/onInteractionCreate';
-import onMessageReactionAdd from './events/onMessageReactionAdd';
-import onVoiceStateUpdate from './events/onVoiceStateUpdate';
+import { GatewayIntentBits, Options, Client, ActivityType, CacheFactory, ColorResolvable } from "discord.js";
+import Logger from "./classes/logging/Logger.js";
+import onReady from "./events/onReady.js";
+import onMessageCreate from "./events/onMessageCreate.js";
+import onInteractionCreate from "./events/onInteractionCreate.js";
+import onMessageReactionAdd from "./events/onMessageReactionAdd.js";
+import onVoiceStateUpdate from "./events/onVoiceStateUpdate.js";
+import { Log } from "youtubei.js/agnostic";
 
 /* ==== TYPE DEFINITION ===================================================== */
 /** Constant for all embeds sent, but not meaningful as bot instance propery. */
@@ -118,8 +119,13 @@ export default class HaramLeotta extends Client {
 /* ==== INIT ================================================================ */
 /** This block runs if file is started directly, not when imported.
  *  Used so that the slash command registration can be triggered without
- *  initializing the application. */
-if (require.main === module) {
+ *  initializing the application.
+ *  Check if this file is the program's entry point (run directly with `node file.ts`)
+ *  `import.meta.url` → full URL of this module (e.g. "file:///home/user/project/src/index.ts")
+ *  `process.argv[1]` → path of the script passed to `node` (e.g. "/home/user/project/src/index.ts")
+ *  By comparing them (after adding the "file://" prefix), we detect if this module was run directly.
+ *  OLD CommonJs logic: if (require.main === module) { */
+if(import.meta.url === `file://${process.argv[1]}`) {
     HaramLeotta.get().init();
 }
 

@@ -1,10 +1,10 @@
-import { msgReactErrorHandler, msgReactResponseTransformer } from "../../events/onMessageCreate";
-import { CommandMetadata } from "../types";
+import { msgReactErrorHandler, msgReactResponseTransformer } from "../../events/onMessageCreate.js";
+import { CommandMetadata } from "../types.js";
 import { Interaction, Message } from "discord.js";
-import MusicPlayer from "../../classes/music/MusicPlayer";
-import ASong from "../../classes/music/song/ASong";
-import QueryMessage from "../../classes/music/message/queryMessage";
-import { ephemeralReplyErrorHandler, noReplyResponseTransformer } from "../../events/onInteractionCreate";
+import MusicPlayer from "../../classes/music/MusicPlayer.js";
+import ASong from "../../classes/music/song/ASong.js";
+import QueryMessage from "../../classes/music/message/queryMessage.js";
+import { ephemeralReplyErrorHandler, noReplyResponseTransformer } from "../../events/onInteractionCreate.js";
 
 /** Dumb regex that checks if the string is an URL (not if it's a valid one). */
 const uriRegex: RegExp = /https?:\/\/.*/;

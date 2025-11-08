@@ -1,11 +1,11 @@
 import { Message, MessagePayload, MessageReplyOptions } from "discord.js";
-import Context from "../classes/logging/Context";
-import { CommandMetadata } from "../commands/types";
-import Logger from "../classes/logging/Logger";
-import UserRepository from "../classes/user/UserRepository";
-import { commandMetadataMap } from "../commands/registration";
-import querySelectCommandMetadata from "../commands/music/query/querySelectCommand";
-import { VALID_PREFIX_REGEX } from "../commands/messages/prefixCommand";
+import Context from "../classes/logging/Context.js";
+import { CommandMetadata } from "../commands/types.js";
+import Logger from "../classes/logging/Logger.js";
+import UserRepository from "../classes/user/UserRepository.js";
+import { commandMetadataMap } from "../commands/registration.js";
+import querySelectCommandMetadata from "../commands/music/query/querySelectCommand.js";
+import { VALID_PREFIX_REGEX } from "../commands/messages/prefixCommand.js";
 
 /** Default prefix that can be used by users to activate text commands.
  *  If default prefix is not defined in the environment, use "ham". */

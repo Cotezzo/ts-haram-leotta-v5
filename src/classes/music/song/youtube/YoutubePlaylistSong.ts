@@ -1,7 +1,7 @@
 import axios from "axios";
-import ASong from "../ASong";
-import YoutubeSong from "./YoutubeSong";
-import Logger from "../../../logging/Logger";
+import ASong from "../ASong.js";
+import YoutubeSong from "./YoutubeSong.js";
+import Logger from "../../../logging/Logger.js";
 
 export default class YoutubePlaylistSong extends ASong {
 

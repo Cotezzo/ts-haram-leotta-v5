@@ -1,9 +1,9 @@
 import { AttachmentBuilder, User } from "discord.js";
-import { CommandMetadata } from "../types";
-import { msgReactErrorHandler, msgReplyResponseTransformer } from "../../events/onMessageCreate";
-import Images from "../../classes/image/images";
-import UserRepository from "../../classes/user/UserRepository";
-import { ephemeralReplyErrorHandler, ephemeralReplyResponseTransformer, interactionReplyResponseTransformer } from "../../events/onInteractionCreate";
+import { CommandMetadata } from "../types.js";
+import { msgReactErrorHandler, msgReplyResponseTransformer } from "../../events/onMessageCreate.js";
+import Images from "../../classes/image/images.js";
+import UserRepository from "../../classes/user/UserRepository.js";
+import { ephemeralReplyErrorHandler, interactionReplyResponseTransformer } from "../../events/onInteractionCreate.js";
 
 /** Regex to be used to detect if an argument is a file uri or not. */
 export const fileRegex = /^https?:\/\/.*$/;

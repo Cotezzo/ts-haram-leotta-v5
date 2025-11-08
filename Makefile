@@ -30,7 +30,7 @@ all: local
 #	- run the module in a modified environment with exported variables
 local:
 	docker compose -f ${DOCKER_COMPOSE_DEV} up -d haram-leotta-mongo
-	env $$(cat .env | grep -v '^#' | sed 's/\r$$//' | xargs -r) npm run dev
+	exec env $$(cat .env | grep -v '^#' | sed 's/\r$$//' | xargs -r) npm run dev
 #	set -a; . $$(pwd)/.env; set +a; npm run dev
 
 # DEV: run docker-compose dev configuration and keep terminal (nohup ... &).

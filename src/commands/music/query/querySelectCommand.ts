@@ -1,12 +1,12 @@
-import { CommandMetadata } from "../../types";
+import { CommandMetadata } from "../../types.js";
 import { Interaction, Message } from "discord.js";
-import QueryMessage from "../../../classes/music/message/queryMessage";
-import ASong from "../../../classes/music/song/ASong";
-import YoutubePlaylistSong from "../../../classes/music/song/youtube/YoutubePlaylistSong";
-import MusicPlayer from "../../../classes/music/MusicPlayer";
-import { msgReactErrorHandler, msgReactResponseTransformer } from "../../../events/onMessageCreate";
-import Logger from "../../../classes/logging/Logger";
-import { deferUpdateErrorHandler, deferUpdateResponseTransformer } from "../../../events/onInteractionCreate";
+import QueryMessage from "../../../classes/music/message/queryMessage.js";
+import ASong from "../../../classes/music/song/ASong.js";
+import YoutubePlaylistSong from "../../../classes/music/song/youtube/YoutubePlaylistSong.js";
+import MusicPlayer from "../../../classes/music/MusicPlayer.js";
+import { msgReactErrorHandler, msgReactResponseTransformer } from "../../../events/onMessageCreate.js";
+import Logger from "../../../classes/logging/Logger.js";
+import { deferUpdateErrorHandler, deferUpdateResponseTransformer } from "../../../events/onInteractionCreate.js";
 
 const querySelectCommandMetadata: CommandMetadata<{ i: Message | Interaction, index: number | undefined }, true | void> = {
     category: "Music", description: "When the query message is displayed, select the item to be played",

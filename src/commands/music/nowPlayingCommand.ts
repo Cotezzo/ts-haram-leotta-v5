@@ -1,8 +1,8 @@
-import { CommandMetadata } from "../types";
+import { CommandMetadata } from "../types.js";
 import { Interaction, Message } from "discord.js";
-import MusicPlayer from "../../classes/music/MusicPlayer";
-import {  msgReactErrorHandler, msgReactResponseTransformer } from "../../events/onMessageCreate";
-import { ephemeralReplyErrorHandler, noReplyResponseTransformer } from "../../events/onInteractionCreate";
+import MusicPlayer from "../../classes/music/MusicPlayer.js";
+import {  msgReactErrorHandler, msgReactResponseTransformer } from "../../events/onMessageCreate.js";
+import { ephemeralReplyErrorHandler, noReplyResponseTransformer } from "../../events/onInteractionCreate.js";
 
 const nowPlayingCommandMetadata: CommandMetadata<{ i: Message | Interaction }, void> = {
     category: "Music", description: "Shows the currently playing song",

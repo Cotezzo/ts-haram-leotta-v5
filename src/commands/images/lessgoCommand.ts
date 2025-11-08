@@ -1,9 +1,9 @@
 import { AttachmentBuilder, User } from "discord.js";
-import { CommandMetadata } from "../types";
-import dripCommandMetadata from "./dripCommand";
-import Images from "../../classes/image/images";
-import { msgReactErrorHandler, msgReplyResponseTransformer } from "../../events/onMessageCreate";
-import { ephemeralReplyErrorHandler, ephemeralReplyResponseTransformer, interactionReplyResponseTransformer } from "../../events/onInteractionCreate";
+import { CommandMetadata } from "../types.js";
+import dripCommandMetadata from "./dripCommand.js";
+import Images from "../../classes/image/images.js";
+import { msgReactErrorHandler, msgReplyResponseTransformer } from "../../events/onMessageCreate.js";
+import { ephemeralReplyErrorHandler, interactionReplyResponseTransformer } from "../../events/onInteractionCreate.js";
 
 /** Base PNG with the dripping figure image. */
 const baseImage: string = "./assets/images/lessgo.png";

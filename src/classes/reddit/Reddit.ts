@@ -1,8 +1,8 @@
-import axios from 'axios';
+import axios from "axios"
 import he from "he";
-import { sleep } from '../../utils/sleep';
-import { RedditPost, RedditSortBy, Subreddit } from './types';
-import Logger from '../logging/Logger';
+import { sleep } from "../../utils/sleep.js"
+import { RedditPost, RedditSortBy, Subreddit } from "./types.js"
+import Logger from "../logging/Logger.js"
 
 export default class Reddit {
 

@@ -1,11 +1,11 @@
 import { ActionRowBuilder, ButtonBuilder, ButtonStyle, EmbedBuilder } from "discord.js";
-import DynamicMessage from "./dynamicMessage";
-import HaramLeotta from "../../..";
-import MusicPlayer from "../MusicPlayer";
-import { secondsToString } from "../../../utils/length";
+import DynamicMessage from "./dynamicMessage.js";
+import MusicPlayer from "../MusicPlayer.js";
+import HaramLeotta from "../../../index.js";
+import { secondsToString } from "../../../utils/length.js";
 import { AudioPlayerStatus } from "@discordjs/voice";
-import ASong from "../song/ASong";
-import Logger from "../../logging/Logger";
+import ASong from "../song/ASong.js";
+import Logger from "../../logging/Logger.js";
 
 export default class NowPlayingMessage extends DynamicMessage {
 

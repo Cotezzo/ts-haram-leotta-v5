@@ -1,5 +1,5 @@
 import Jimp from "jimp";
-import { OverlapOptions } from "./types";
+import { OverlapOptions } from "./types.js";
 
 export default class Images {
 

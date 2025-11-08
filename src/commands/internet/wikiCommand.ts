@@ -1,7 +1,7 @@
-import { msgReactErrorHandler, msgReplyResponseTransformer } from "../../events/onMessageCreate";
-import Wikipedia from "../../classes/wikipedia/Wikipedia";
-import { CommandMetadata } from "../types";
-import { ephemeralReplyErrorHandler, interactionReplyResponseTransformer } from "../../events/onInteractionCreate";
+import { msgReactErrorHandler, msgReplyResponseTransformer } from "../../events/onMessageCreate.js";
+import Wikipedia from "../../classes/wikipedia/Wikipedia.js";
+import { CommandMetadata } from "../types.js";
+import { ephemeralReplyErrorHandler, interactionReplyResponseTransformer } from "../../events/onInteractionCreate.js";
 
 const wikiCommandMetadata: CommandMetadata<{ query: string, language?: string }, { content: string }> = {
     category: "Internet", description: "Sends the Wikipedia link (and embed) of a topic.",

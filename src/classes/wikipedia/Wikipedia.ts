@@ -1,5 +1,5 @@
 import axios from "axios";
-import Logger from "../logging/Logger";
+import Logger from "../logging/Logger.js";
 
 export default class Wikipedia {
 
@@ -66,7 +66,7 @@ export default class Wikipedia {
         const params = { ...Wikipedia.defParams, meta: "siteinfo", siprop: "interwikimap" }
 
         // Call Wikipedia siteinfo API to retrieve all possible websites
-        return axios.get("https://en.wikipedia.org/w/api.php", { params })
+        return axios.get("https://en.wikipedia.org/w/api.php", { params, headers: { "User-Agent": "" } })
 
         // The language prefixes have the "language" property:
         // Only take the elements with this property and retrieve prefix

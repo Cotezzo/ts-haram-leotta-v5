@@ -1,6 +1,6 @@
-import Logger from "../logging/Logger";
-import MusicPlayer from "./MusicPlayer";
-import ASong from "./song/ASong";
+import Logger from "../logging/Logger.js";
+import MusicPlayer from "./MusicPlayer.js";
+import ASong from "./song/ASong.js";
 
 export default abstract class MusicQueue {
 

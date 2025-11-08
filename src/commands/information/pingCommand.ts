@@ -1,7 +1,7 @@
-import HaramLeotta from "../..";
-import { ephemeralReplyErrorHandler, ephemeralReplyResponseTransformer } from "../../events/onInteractionCreate";
-import { msgReactErrorHandler, msgReplyResponseTransformer } from "../../events/onMessageCreate";
-import { CommandMetadata } from "../types";
+import HaramLeotta from "../../index.js";
+import { ephemeralReplyErrorHandler, ephemeralReplyResponseTransformer } from "../../events/onInteractionCreate.js";
+import { msgReactErrorHandler, msgReplyResponseTransformer } from "../../events/onMessageCreate.js";
+import { CommandMetadata } from "../types.js";
 
 const pingCommandMetadata: CommandMetadata<null, { content: string }> = {
     category: "Information", description: "WebSocket ping in milliseconds.",

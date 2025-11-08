@@ -1,8 +1,8 @@
-import { msgReactErrorHandler, msgReactResponseTransformer } from "../../../events/onMessageCreate";
-import { CommandMetadata } from "../../types";
+import { msgReactErrorHandler, msgReactResponseTransformer } from "../../../events/onMessageCreate.js";
+import { CommandMetadata } from "../../types.js";
 import { Interaction, Message } from "discord.js";
-import FavouritesMessage from "../../../classes/music/message/favouritesMessage";
-import { ephemeralReplyErrorHandler, noReplyResponseTransformer } from "../../../events/onInteractionCreate";
+import FavouritesMessage from "../../../classes/music/message/favouritesMessage.js";
+import { ephemeralReplyErrorHandler, noReplyResponseTransformer } from "../../../events/onInteractionCreate.js";
 
 const favouritesCommandMetadata: CommandMetadata<{ i: Message | Interaction }, void> = {
     category: "Music", description: "Shows all the songs added to your favourites.",

@@ -1,6 +1,6 @@
-import { AsyncLocalStorage } from 'async_hooks';
-import { v4 as uuidv4 } from 'uuid';
-import { ContextData, ContextDataKey } from './types';
+import { AsyncLocalStorage } from "async_hooks";
+import { v4 as uuidv4 } from "uuid";
+import { ContextData, ContextDataKey } from "./types.js";
 
 export default class Context {
 

@@ -1,8 +1,8 @@
 import { PermissionsBitField, VoiceBasedChannel, VoiceChannel, VoiceState } from "discord.js";
-import Context from "../classes/logging/Context";
-import Logger from "../classes/logging/Logger";
-import HaramLeotta from "..";
-import MusicPlayer from "../classes/music/MusicPlayer";
+import Context from "../classes/logging/Context.js";
+import Logger from "../classes/logging/Logger.js";
+import HaramLeotta from "../index.js";
+import MusicPlayer from "../classes/music/MusicPlayer.js";
 
 export default function (oldState: VoiceState, newState: VoiceState): void {
     // Before executing any logic, initialize context for verbose logging

@@ -1,9 +1,9 @@
 import { EmbedBuilder, User } from "discord.js";
-import { CommandMetadata } from "../types";
-import { msgReactErrorHandler, msgReplyResponseTransformer } from "../../events/onMessageCreate";
-import HaramLeotta from "../..";
-import UserRepository from "../../classes/user/UserRepository";
-import { ephemeralReplyErrorHandler, ephemeralReplyResponseTransformer, interactionReplyResponseTransformer } from "../../events/onInteractionCreate";
+import { CommandMetadata } from "../types.js";
+import { msgReactErrorHandler, msgReplyResponseTransformer } from "../../events/onMessageCreate.js";
+import HaramLeotta from "../../index.js";
+import UserRepository from "../../classes/user/UserRepository.js";
+import { ephemeralReplyErrorHandler, interactionReplyResponseTransformer } from "../../events/onInteractionCreate.js";
 
 const picCommandMetadata: CommandMetadata<{ user: User }, { embeds: EmbedBuilder[] }> = {
     category: "Images", description: "Sends the pic of a user.", aliases: ["pic"],

@@ -1,5 +1,5 @@
 import { Message, MessagePayload, TextChannel } from "discord.js";
-import Logger from "../../logging/Logger";
+import Logger from "../../logging/Logger.js";
 
 export default class DynamicMessage {
 

@@ -1,8 +1,8 @@
 import { AnySelectMenuInteraction, AttachmentBuilder, ButtonInteraction, CommandInteraction, EmbedBuilder, Interaction } from "discord.js";
-import { commandMetadataMap } from "../commands/registration";
-import Context from "../classes/logging/Context";
-import { CommandMetadata } from "../commands/types";
-import Logger from "../classes/logging/Logger";
+import { commandMetadataMap } from "../commands/registration.js";
+import Context from "../classes/logging/Context.js";
+import { CommandMetadata } from "../commands/types.js";
+import Logger from "../classes/logging/Logger.js";
 
 export default function (interaction: Interaction): void {
     // Before executing any logic, initialize context for verbose logging

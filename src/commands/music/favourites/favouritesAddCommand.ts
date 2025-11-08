@@ -1,14 +1,14 @@
-import { CommandMetadata } from "../../types";
+import { CommandMetadata } from "../../types.js";
 import { Interaction, Message } from "discord.js";
-import FavouritesMessage from "../../../classes/music/message/favouritesMessage";
-import MusicPlayer from "../../../classes/music/MusicPlayer";
-import UserRepository from "../../../classes/user/UserRepository";
-import YoutubeSong from "../../../classes/music/song/youtube/YoutubeSong";
-import YoutubeMixSong from "../../../classes/music/song/youtube/YoutubeMixSong";
-import YoutubePlaylistSong from "../../../classes/music/song/youtube/YoutubePlaylistSong";
-import SpotifySong from "../../../classes/music/song/spotify/SpotifySong";
-import { msgReactErrorHandler, msgReactResponseTransformer } from "../../../events/onMessageCreate";
-import { ephemeralReplyErrorHandler, noReplyResponseTransformer } from "../../../events/onInteractionCreate";
+import FavouritesMessage from "../../../classes/music/message/favouritesMessage.js";
+import MusicPlayer from "../../../classes/music/MusicPlayer.js";
+import UserRepository from "../../../classes/user/UserRepository.js";
+import YoutubeSong from "../../../classes/music/song/youtube/YoutubeSong.js";
+import YoutubeMixSong from "../../../classes/music/song/youtube/YoutubeMixSong.js";
+import YoutubePlaylistSong from "../../../classes/music/song/youtube/YoutubePlaylistSong.js";
+import SpotifySong from "../../../classes/music/song/spotify/SpotifySong.js";
+import { msgReactErrorHandler, msgReactResponseTransformer } from "../../../events/onMessageCreate.js";
+import { ephemeralReplyErrorHandler, noReplyResponseTransformer } from "../../../events/onInteractionCreate.js";
 
 const favouritesAddCommandMetadata: CommandMetadata<{ i: Message | Interaction, userId: string }, void> = {
     category: "Music", description: "Adds current song to favourites. \

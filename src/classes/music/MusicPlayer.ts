@@ -1,16 +1,16 @@
 import { GuildMember, Interaction, Message, PermissionsBitField, TextBasedChannel, TextChannel, VoiceBasedChannel } from "discord.js";
-import MusicQueue from "./MusicQueue";
+import MusicQueue from "./MusicQueue.js";
 import { AudioPlayer, AudioPlayerError, AudioPlayerState, AudioPlayerStatus, AudioResource, StreamType, VoiceConnection, VoiceConnectionStatus, createAudioPlayer, createAudioResource, joinVoiceChannel } from "@discordjs/voice";
-import { Readable } from 'stream';
-import { sleep } from "../../utils/sleep";
-import YoutubeSong from "./song/youtube/YoutubeSong";
-import SpotifySong from "./song/spotify/SpotifySong";
-import Logger from "../logging/Logger";
-import NowPlayingMessage from "./message/nowPlayingMessage";
-import QueueMessage from "./message/queueMessage";
-import YoutubePlaylistSong from "./song/youtube/YoutubePlaylistSong";
-import ASong from "./song/ASong";
-import RawUriSong from "./song/RawUriSong";
+import { Readable } from "stream"
+import { sleep } from "../../utils/sleep.js";
+import YoutubeSong from "./song/youtube/YoutubeSong.js";
+import SpotifySong from "./song/spotify/SpotifySong.js";
+import Logger from "../logging/Logger.js";
+import NowPlayingMessage from "./message/nowPlayingMessage.js";
+import QueueMessage from "./message/queueMessage.js";
+import YoutubePlaylistSong from "./song/youtube/YoutubePlaylistSong.js";
+import ASong from "./song/ASong.js";
+import RawUriSong from "./song/RawUriSong.js";
 
 class MusicPlayer extends MusicQueue {
 

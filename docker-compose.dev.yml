@@ -61,13 +61,12 @@ services:
       # Node & Discord configuration
       NODE_ENV: dev
       LOG_LEVEL: INFO
-      VERSION: 5.2.0
+      VERSION: 5.3.0
       TOKEN: ${TOKEN}
       PREFIX: ham
       EMBED_COLOR: 0xad1457
       MUSIC_MAX_HISTORY: 5
       REDDIT_MAX_SUBS: 5
-      YTDLP_PATH: /usr/local/bin/yt-dlp
 
     # Build image from Dockerfile in the current directory and override its CMD.
     build: .

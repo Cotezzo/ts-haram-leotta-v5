@@ -1,10 +1,10 @@
 import { ActionRowBuilder, ButtonBuilder, ButtonStyle, Interaction, Message, TextChannel } from "discord.js";
-import DynamicMessage from "./dynamicMessage";
-import MusicPlayer from "../MusicPlayer";
-import ASong from "../song/ASong";
-import { sleep } from "../../../utils/sleep";
-import Logger from "../../logging/Logger";
-import UserRepository from "../../user/UserRepository";
+import DynamicMessage from "./dynamicMessage.js";
+import MusicPlayer from "../MusicPlayer.js";
+import ASong from "../song/ASong.js";
+import { sleep } from "../../../utils/sleep.js";
+import Logger from "../../logging/Logger.js";
+import UserRepository from "../../user/UserRepository.js";
 
 const RESULTS_PER_PAGE: number = 10;
 

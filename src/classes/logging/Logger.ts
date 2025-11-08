@@ -1,5 +1,5 @@
-import Context from "./Context";
-import { LogLevel } from "./types";
+import Context from "./Context.js";
+import { LogLevel } from "./types.js";
 
 export default class Logger {
 

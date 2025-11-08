@@ -1,12 +1,13 @@
 {
   "name": "ts-haram-leotta-v5",
-  "version": "5.2.1",
+  "version": "5.3.0",
   "main": "src/index.ts",
+  "type": "module",
   "scripts": {
-    "dev": "ts-node-dev --respawn --clear --transpile-only --poll ./src/index.ts",
-    "register-commands": "ts-node-dev --clear --transpile-only --poll ./src/slashRegistration.ts",
-    "build": "tsc",
-    "start": "node ./dist"
+    "dev": "tsx watch ./src/index.ts",
+    "register-commands": "tsx watch ./src/slashRegistration.ts",
+    "build": "npx tsc",
+    "start": "node ./dist/index.js"
   },
   "keywords": [
     "NodeJS",
@@ -20,25 +21,29 @@
   "description": "Multi-Purpose Discord Bot for personal use",
   "devDependencies": {
     "@types/he": "^1.2.3",
-    "@types/uuid": "^9.0.8",
+    "@types/uuid": "^11.0.0",
     "ts-node-dev": "^2.0.0",
-    "typescript": "^5.4.5"
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3"
   },
   "dependencies": {
     "@discordjs/opus": "^0.10.0",
-    "@discordjs/voice": "^0.18.0",
+    "@discordjs/voice": "^0.19.0",
     "@distube/ytdl-core": "^4.16.12",
-    "axios": "^1.8.4",
-    "discord.js": "^14.19.3",
+    "@snazzah/davey": "^0.1.7",
+    "axios": "^1.13.2",
+    "discord.js": "^14.24.2",
     "ffmpeg": "^0.0.4",
     "ffmpeg-static": "^5.2.0",
     "he": "^1.2.0",
     "jimp": "^0.22.12",
     "libsodium-wrappers": "^0.7.15",
-    "mongoose": "^8.3.5",
+    "mongoose": "^8.19.3",
     "opusscript": "^0.1.1",
-    "uuid": "^9.0.1",
-    "youtube-search-api": "^2.0.0",
-    "yt-dlp-wrap": "^2.3.12"
+    "uuid": "^13.0.0",
+    "youtube-search-api": "^2.0.1",
+    "youtubei.js": "^16.0.1",
+    "yt-dlp-wrap": "^2.3.12",
+    "ytdlp-nodejs": "^2.3.5"
   }
 }

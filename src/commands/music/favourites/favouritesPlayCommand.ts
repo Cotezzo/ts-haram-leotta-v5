@@ -1,10 +1,10 @@
-import { CommandMetadata } from "../../types";
+import { CommandMetadata } from "../../types.js";
 import { Interaction, Message } from "discord.js";
-import FavouritesMessage from "../../../classes/music/message/favouritesMessage";
-import MusicPlayer from "../../../classes/music/MusicPlayer";
-import UserRepository from "../../../classes/user/UserRepository";
-import ASong from "../../../classes/music/song/ASong";
-import { msgReactErrorHandler, msgReactResponseTransformer } from "../../../events/onMessageCreate";
+import FavouritesMessage from "../../../classes/music/message/favouritesMessage.js";
+import MusicPlayer from "../../../classes/music/MusicPlayer.js";
+import UserRepository from "../../../classes/user/UserRepository.js";
+import ASong from "../../../classes/music/song/ASong.js";
+import { msgReactErrorHandler, msgReactResponseTransformer } from "../../../events/onMessageCreate.js";
 
 const favouritesPlayCommandMetadata: CommandMetadata<{ i: Message | Interaction, userId: string, index: number | undefined }, void> = {
     category: "Music", description: "Plays the selected song from the favourites.",

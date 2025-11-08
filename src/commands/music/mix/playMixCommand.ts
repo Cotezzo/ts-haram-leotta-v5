@@ -1,10 +1,10 @@
-import { msgReactErrorHandler, msgReactResponseTransformer } from "../../../events/onMessageCreate";
+import { msgReactErrorHandler, msgReactResponseTransformer } from "../../../events/onMessageCreate.js";
 import { Interaction, Message } from "discord.js";
-import MusicPlayer from "../../../classes/music/MusicPlayer";
-import YoutubeSong from "../../../classes/music/song/youtube/YoutubeSong";
-import { CommandMetadata } from "../../types";
-import YoutubeMixSong from "../../../classes/music/song/youtube/YoutubeMixSong";
-import { ephemeralReplyErrorHandler, noReplyResponseTransformer } from "../../../events/onInteractionCreate";
+import MusicPlayer from "../../../classes/music/MusicPlayer.js";
+import YoutubeSong from "../../../classes/music/song/youtube/YoutubeSong.js";
+import { CommandMetadata } from "../../types.js";
+import YoutubeMixSong from "../../../classes/music/song/youtube/YoutubeMixSong.js";
+import { ephemeralReplyErrorHandler, noReplyResponseTransformer } from "../../../events/onInteractionCreate.js";
 
 const playMixCommandMetadata: CommandMetadata<{ i: Message | Interaction, uri: string }, void> = {
     category: "Music", description: "Plays a mix of a youtube video song in your \

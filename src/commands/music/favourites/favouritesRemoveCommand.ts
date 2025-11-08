@@ -1,9 +1,9 @@
-import { CommandMetadata } from "../../types";
+import { CommandMetadata } from "../../types.js";
 import { Interaction, Message } from "discord.js";
-import UserRepository from "../../../classes/user/UserRepository";
-import { msgReactErrorHandler, msgReactResponseTransformer } from "../../../events/onMessageCreate";
-import FavouritesMessage from "../../../classes/music/message/favouritesMessage";
-import { ephemeralReplyErrorHandler, noReplyResponseTransformer } from "../../../events/onInteractionCreate";
+import UserRepository from "../../../classes/user/UserRepository.js";
+import { msgReactErrorHandler, msgReactResponseTransformer } from "../../../events/onMessageCreate.js";
+import FavouritesMessage from "../../../classes/music/message/favouritesMessage.js";
+import { ephemeralReplyErrorHandler, noReplyResponseTransformer } from "../../../events/onInteractionCreate.js";
 
 const favouritesRemoveCommandMetadata: CommandMetadata<{ i: Message | Interaction, index: number }, void> = {
     category: "Music", description: "Removes a song from the favourites.",

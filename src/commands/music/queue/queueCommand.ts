@@ -1,8 +1,8 @@
-import { CommandMetadata } from "../../types";
+import { CommandMetadata } from "../../types.js";
 import { Interaction, Message } from "discord.js";
-import MusicPlayer from "../../../classes/music/MusicPlayer";
-import { deferUpdateErrorHandler, deferUpdateResponseTransformer, ephemeralReplyErrorHandler, noReplyResponseTransformer } from "../../../events/onInteractionCreate";
-import { msgReactErrorHandler, msgReactResponseTransformer } from "../../../events/onMessageCreate";
+import MusicPlayer from "../../../classes/music/MusicPlayer.js";
+import { deferUpdateErrorHandler, deferUpdateResponseTransformer, ephemeralReplyErrorHandler, noReplyResponseTransformer } from "../../../events/onInteractionCreate.js";
+import { msgReactErrorHandler, msgReactResponseTransformer } from "../../../events/onMessageCreate.js";
 
 const queueCommandMetadata: CommandMetadata<{ i: Message | Interaction }, void> = {
     category: "Music", description: "Shows the playlist currently playing",

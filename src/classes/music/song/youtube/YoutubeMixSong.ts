@@ -1,9 +1,9 @@
 import axios from "axios";
-import YoutubeSong from "./YoutubeSong";
-import { stringToSeconds } from "../../../../utils/length";
-import ASong from "../ASong";
-import Logger from "../../../logging/Logger";
-import { Readable } from 'stream';
+import YoutubeSong from "./YoutubeSong.js";
+import { stringToSeconds } from "../../../../utils/length.js";
+import ASong from "../ASong.js";
+import Logger from "../../../logging/Logger.js";
+import { Readable } from "stream";
 
 export default class YoutubeMixSong extends ASong {
   
@@ -36,7 +36,7 @@ export default class YoutubeMixSong extends ASong {
 
     /* ==== PUBLIC METHODS ================================================== */
     /** Returns the stream of the song to be played. */
-    public getStream(): Readable { return this.getCurrent().getStream(); }
+    public getStream(): Promise<Readable> { return this.getCurrent().getStream(); }
 
     /** Retrieves first element in the inner songs queue. */
     public getCurrent(): YoutubeSong { return this.queue[0]; }

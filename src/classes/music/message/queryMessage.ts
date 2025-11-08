@@ -1,10 +1,10 @@
-import { ActionRowBuilder, ButtonBuilder, ButtonStyle, Interaction, Message, StringSelectMenuBuilder, StringSelectMenuOptionBuilder, TextBasedChannel, TextChannel } from "discord.js";
-import DynamicMessage from "./dynamicMessage";
-import MusicPlayer from "../MusicPlayer";
-import ASong from "../song/ASong";
-import YoutubeSong from "../song/youtube/YoutubeSong";
-import { sleep } from "../../../utils/sleep";
-import Logger from "../../logging/Logger";
+import { ActionRowBuilder, ButtonBuilder, ButtonStyle, Interaction, Message, StringSelectMenuBuilder, StringSelectMenuOptionBuilder, TextChannel } from "discord.js";
+import DynamicMessage from "./dynamicMessage.js";
+import MusicPlayer from "../MusicPlayer.js";
+import ASong from "../song/ASong.js";
+import YoutubeSong from "../song/youtube/YoutubeSong.js";
+import { sleep } from "../../../utils/sleep.js";
+import Logger from "../../logging/Logger.js";
 
 const RESULTS_PER_PAGE: number = 10;
 

@@ -1,8 +1,8 @@
 import { EmbedBuilder } from "discord.js";
-import { CommandMetadata } from "../types";
-import { msgReactErrorHandler, msgReplyResponseTransformer } from "../../events/onMessageCreate";
-import HaramLeotta from "../..";
-import { ephemeralReplyErrorHandler, ephemeralReplyResponseTransformer } from "../../events/onInteractionCreate";
+import { CommandMetadata } from "../types.js";
+import { msgReactErrorHandler, msgReplyResponseTransformer } from "../../events/onMessageCreate.js";
+import HaramLeotta from "../../index.js";
+import { ephemeralReplyErrorHandler, ephemeralReplyResponseTransformer } from "../../events/onInteractionCreate.js";
 
 const changelogsCommandMetadata: CommandMetadata<null, { embeds: EmbedBuilder[] }> = {
     category: "Information", description: "News and notes about the bot code and functionalities.",

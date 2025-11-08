@@ -1,19 +1,13 @@
 import ytdl from "@distube/ytdl-core";
-//import { YtDlp } from "ytdlp-nodejs";
-//import YTDlpWrap  from "yt-dlp-wrap";
-import { secondsToString, stringToSeconds } from "../../../../utils/length";
-import ASong from "../ASong";
-import { Readable } from 'stream';
-import YoutubePlaylistSong from "./YoutubePlaylistSong";
-import Logger from "../../../logging/Logger";
-const YouTubeSearchApi = require("youtube-search-api");
+import { secondsToString, stringToSeconds } from "../../../../utils/length.js";
+import ASong from "../ASong.js";
+import { PassThrough, Readable } from 'stream';
+import YoutubePlaylistSong from "./YoutubePlaylistSong.js";
+import Logger from "../../../logging/Logger.js";
+import YouTubeSearchApi from "youtube-search-api";
+import { YtDlp } from "ytdlp-nodejs";
 
-/*
-const binaryPath = process.env.YTDLP_PATH;
-Logger.info("Configured YtDlp binary: " + binaryPath);
-const ytDlpWrap = new YTDlpWrap(binaryPath);
-*/
-//const ytdlp = new YtDlp({ binaryPath });
+const ytdlp = new YtDlp();
 
 export default class YoutubeSong extends ASong {
 
@@ -26,30 +20,13 @@ export default class YoutubeSong extends ASong {
     }
 
     /* ==== METHODS ========================================================= */
-    getStream(): Readable {
-        /*
-        const stream = ytDlpWrap.execStream([
-            this.uri!,
-            '-f',                           // Format flag
-            'bestaudio[ext=m4a]',           // Best audio, prefer m4a format (or change to mp3/webm)
-            '--extract-audio',              // Extract audio only (ignore video)
-            '--audio-quality', '0',         // Set audio quality to best (0)
-            '--audio-format', 'm4a',        // You can set this to 'mp3', 'm4a', or 'webm'
-            '--postprocessor-args', '-vn',  // Post-process settings, disables video (-vn) if audio only
-        ]);
-        // Create intermediate stream with a large buffer
-        const passThroughStream = new PassThrough({ highWaterMark: 1048576 * 32 });
-        stream.pipe(passThroughStream);
-        return passThroughStream;
-        */
-
-        
-        /* Old method, it works but library installation fails on aarch64
+    async getStream(): Promise<Readable> {
+        // Old method, it works but library installation fails on aarch64
         // Retrieve Youtube audio stream
         const pipeResponse = ytdlp.stream(
             this.uri!,
             {
-                format: { filter: "audioonly", quality: "highest" },
+                format: { filter: "audioonly", type: "opus" }
                 //onProgress: p => Logger.info(JSON.stringify(p))
             }
         );
@@ -58,14 +35,26 @@ export default class YoutubeSong extends ASong {
         const passThroughStream = new PassThrough();
         pipeResponse.pipe(passThroughStream);
         return passThroughStream;
-        */
 
+        /*
+        const youtube = await Innertube.create();
 
-        /* Old method with "@distube/ytdl-core" */
-        return ytdl(this.uri!, {
-            begin: 0, agent: ytdl.createAgent(),
-            filter: "audioonly", quality: "highestaudio", highWaterMark: 1048576 * 32
+        const info: VideoInfo = await youtube.getInfo(this.uri!);
+        console.log(info.basic_info.title);
+
+        // If you pass a full YouTube URL, it will extract the ID internally.
+        const webStream = await youtube.download(this.uri!, {
+            type: "audio",       // request audio-only
+            // you could optionally set format, quality, range, etc.
+            // format: "mp4",     // default is mp4 for audio type
+            // quality: "highest", // not necessary for audio only
+            // range: { start: 0 } // analogous to your begin:0
         });
+
+        return Readable.fromWeb(webStream as ReadableStream<any>, {
+            highWaterMark: 1048576 * 32,  // optional — mimic your old tuning
+        });
+        */
     }
 
     

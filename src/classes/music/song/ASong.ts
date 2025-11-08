@@ -1,4 +1,4 @@
-import { Readable } from 'stream';
+import { Readable } from "stream";
 
 /** This interface is used exclusively for the UserModel MongoDB model, but
  *  must be implemented by the actual Song classes. */

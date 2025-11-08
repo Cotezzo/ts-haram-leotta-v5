@@ -1,5 +1,5 @@
 import { Document } from "mongoose";
-import ASong from "../../classes/music/song/ASong";
+import ASong from "../../classes/music/song/ASong.js";
 
 /** This interface is used exclusively for the UserModel MongoDB model.
  *  Extend document to let TypeScript see IUserModel as a child of UserModel. */
